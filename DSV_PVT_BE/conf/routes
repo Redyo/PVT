@@ -1,0 +1,70 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET		/hello							controllers.HomeController.helloThere
+
+
+GET		/user/list-all					controllers.UserController.listUsrs
+GET     /user/getLikes                  controllers.UserController.getAmountOfLikes(id:Long)
+GET     /user/getLikedUsers             controllers.UserController.getLikedUsers(userID:Long)
+GET     /user/getLikers                 controllers.UserController.getLikers(userID:Long)
+GET     /user/getUser                   controllers.UserController.getUser(userID:Long)
+GET     /user/children                  controllers.UserController.getUserChildren(userID:Long)
+GET     /user/getChildAge               controllers.UserController.getChildAge(childID:Integer)
+GET     /user/getUserLocations          controllers.UserController.getUserLocations(userID:Long)
+GET     /user/getUserLocationsEvents    controllers.UserController.getUserLocationsEvents(userID:Long)
+GET     /user/getUserLocationsEventsTest    controllers.UserController.getUserLocationsEventsTest(userID:Long)
+
+POST    /user/create                    controllers.UserController.createUser()
+POST    /user/createChild               controllers.UserController.createChild()
+POST    /user/deleteChild               controllers.UserController.deleteChild()
+POST    /user/location                  controllers.UserController.createFavoriteLocation()
+POST    /user/deleteFavLocation         controllers.UserController.deleteFavoriteLocation()
+POST    /user/like                      controllers.UserController.createLike()
+POST    /user/unlike                    controllers.UserController.deleteLike()
+POST    /user/deleteAccount             controllers.UserController.deleteAccount()
+
+#GET	/importSthlmData				controllers.SthlmDataController.importAll
+#GET	/updateSthlmData				controllers.SthlmDataController.updateAll
+#GET	/getSthlmDesc				    controllers.SthlmDataController.getDescription()
+
+GET     /location/list-all              controllers.LocationController.listLocations
+GET     /location/getLocation           controllers.LocationController.getLocation(locationId:Integer)
+GET     /location/nearYou               controllers.LocationController.getLocationsNearYou(lat:Double, lng:Double)
+#GET     /location/convert                controllers.LocationController.convertCoordinate()
+GET     /location/search                controllers.LocationController.searchLocations(search:String)
+
+GET     /location/userfavourite         controllers.LocationController.checkIfFavourite(userId:Long, locationId:Integer)
+GET     /location/userfavourite2        controllers.LocationController.checkIfFavourite2(userId:Long, locationId:Integer)
+GET     /location/userfavourite3        controllers.LocationController.checkIfFavourite3(userId:Long, locationId:Integer)
+
+GET		/event/select					controllers.EventController.selectEvent(eventId:Integer)
+GET		/event/eventactivity			controllers.EventController.getEverythingForEventActivity(userId:Long, eventId:Integer)
+GET		/event/select-all				controllers.EventController.selectAllEvents()
+GET     /event/selectMaxEventId         controllers.EventController.selectLastCreatedEvent()
+GET		/event/select-attendees			controllers.EventController.selectEventAttendees(eventId:Integer)
+GET		/event/select-by-location		controllers.EventController.selectEventsByLocation(locationId:Integer)
+GET		/event/select-by-user			controllers.EventController.selectEventsByUser(userId:Long)
+GET     /event/events-by-user           controllers.EventController.selectEventsCreatedByUser(userId:Long)
+GET     /event/chat-select              controllers.EventController.selectEventChat(eventId:Integer)
+
+POST	/event/create					controllers.EventController.createEvent()
+POST 	/event/update					controllers.EventController.updateEvent()
+POST 	/event/cancel					controllers.EventController.cancelEvent()
+POST    /event/deleteEvent              controllers.EventController.deleteEvent()
+POST	/event/attend					controllers.EventController.addEventAttendee()
+POST    /event/unattend                 controllers.EventController.deleteEventAttendee()
+POST	/event/chat-insert              controllers.EventController.insertEventChat()
+
+GET     /securityGetTest                controllers.EventController.securityTest()
